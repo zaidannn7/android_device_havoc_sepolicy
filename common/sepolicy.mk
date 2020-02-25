@@ -23,3 +23,6 @@ BOARD_SEPOLICY_DIRS += \
     device/havoc/sepolicy/common/dynamic \
     device/havoc/sepolicy/common/vendor
 endif
+
+# Selectively include legacy rules defined by the products
+-include device/havoc/sepolicy/legacy-common/sepolicy.mk
