@@ -24,9 +24,14 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
 ifeq ($(TARGET_USES_PREBUILT_VENDOR_SEPOLICY), true)
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
     device/havoc/sepolicy/common/dynamic
+ifneq ($(TARGET_HAL_POWER_RW_INPUT_DEVICE), true)
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
+    device/custom/sepolicy/common/dynamic_extra
+endif
 else
 BOARD_VENDOR_SEPOLICY_DIRS += \
     device/havoc/sepolicy/common/dynamic \
+    device/havoc/sepolicy/common/dynamic_extra \
     device/havoc/sepolicy/common/vendor
 endif
 
